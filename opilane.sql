@@ -43,3 +43,54 @@ VALUES(
 --andmete uuendamine
 UPDATE opilane SET aadress='Tartu'
 select * from opilane;
+
+--andmete uuendamine
+UPDATE opilane SET aadress='Tartu'
+select * from opilane;
+
+CREATE TABLE Language
+(
+ID int NOT NULL PRIMARY KEY,
+Code char(3) NOT NULL,
+Language varchar(50) NOT NULL,
+IsOfficial bit,
+Percentage smallint
+);
+select * from Language;
+
+INSERT INTO Language(ID, Code, Language)
+VALUES (2, 'RUS', 'vene'), (3, 'ENG', 'inglise'),
+(4, 'DE', 'saksa')
+
+Create table keeleValik(
+keeleValikId int primary key identity(1,1),
+valikuNimetus varchar(10) not null,
+opilaneId int,
+Foreign key(opilaneId) references opilane(opilaneId),
+Language int,
+Foreign key(language) references Language(ID)
+)
+select * from keelevalik;
+select * from Language;
+select * from opilane;
+
+insert into keelevalik(valikunimetus, opilaneId, Language)
+Values ('valik E', 1, 5)
+
+SELECT *
+FROM opilane, Language, keelevalik
+WHERE opilane.opilaneId=keelevalik.opilaneID
+AND Language.ID=keelevalik.Language
+
+create table oppimine(
+opilaneID int primary key identity (1,1),
+aine varchar(25) not null,
+opetaja varchar(25) not null,
+aasta char(4),
+hinne int,
+foreign key (opilaneId) references opilane(opilaneId));
+
+insert into oppimine(opilaneId, aine, opetaja, aasta, hinne)
+values ('andmebaasid','tarpv24','merkulova',2025,5)
+select * from oppimine 
+ 
