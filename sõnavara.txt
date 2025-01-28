@@ -1,1 +1,18 @@
+andmebaas - AB
+andmebaaside haldus - администрирование базами данных
+andmebaasi haldus süsteem - система управления базами данных
+andmed - данные
+tabel - табель
+veerg = väli
+rida = kirje
+päring (query)- запрос
+laadi alla - скачать
+laadi üle - закачать
+rakendus - приложение
+varundamine - резервное копирование
+taastamine - восстановление
+päringukeel - язык запроса
+relatsiooni andmebaas - 
+seos - связь
+
 
