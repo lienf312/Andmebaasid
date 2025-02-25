@@ -1,0 +1,33 @@
+CREATE TABLE autode_tabel (
+    id INT PRIMARY KEY identity (1,1),
+    mark VARCHAR(50),
+    regnr VARCHAR(20),
+    aasta INT,
+    regpiirkond INT
+);
+
+Drop table autode_tabel
+INSERT INTO autode_tabel (mark, regnr, aasta, regpiirkond)
+VALUES ('Audi', '123 ABC', 2000, 1),
+('Ford', '777 AAA', 1988, 2),
+('Ford', 'FIN 772', 2002, 1),
+('Nissan', '111 CCC', 2006, 1),
+('Toyota', '128 HGF', 2003, 1),
+('VAZ', '544 CCH', 1960, 2);
+
+SELECT * FROM autode_tabel
+ORDER BY aasta DESC;
+
+SELECT mark, COUNT(*)
+FROM autode_tabel
+GROUP BY mark
+HAVING COUNT(*) > 0;
+
+SELECT regnr
+FROM autode_tabel
+WHERE aasta < 1993;
+
+SELECT regnr
+FROM autode_tabel
+WHERE aasta < 1993
+ORDER BY regnr;
