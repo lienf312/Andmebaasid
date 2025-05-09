@@ -1,0 +1,31 @@
+CREATE TABLE Details (
+    DetailID INT PRIMARY KEY,
+    Name NVARCHAR(100),
+    Size NVARCHAR(20),
+    Material NVARCHAR(50)
+);
+
+CREATE TABLE Departments (
+    DepartmentID INT PRIMARY KEY,
+    Name NVARCHAR(100)
+);
+
+CREATE TABLE Workers (
+    WorkerID INT PRIMARY KEY,
+    Name NVARCHAR(100)
+);
+
+CREATE TABLE DetailsDepartments (
+    DetailID INT,
+    DepartmentID INT,
+    WorkerID INT,
+    PRIMARY KEY (DetailID, DepartmentID),
+    FOREIGN KEY (DetailID) REFERENCES Details(DetailID),
+    FOREIGN KEY (DepartmentID) REFERENCES Departments(DepartmentID),
+    FOREIGN KEY (WorkerID) REFERENCES Workers(WorkerID)
+);
+
+SELECT * FROM Details;
+SELECT * FROM Departments;
+SELECT * FROM Workers;
+SELECT * FROM DetailsDepartments;
